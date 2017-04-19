@@ -1,6 +1,30 @@
 #include <stdio.h>
 
-void TaskCalculations(float v, int t)
+float InputValue()
+{
+	float v;
+	printf("Enter the value (v >= 10000)\n");
+	while(1){
+		scanf("%f", &v);
+		if (v >= 10000) break;
+		printf("Wrong value! Try again\n");
+	}
+	return v;
+}
+
+int InputTime()
+{
+	int t;
+	printf("Enter the time (0 <= t <= 365)\n");
+	while(1){
+		scanf("%d", &t);
+		if (t >= 0 && t <= 365) break;
+		printf("Wrong time! Try again\n");
+	}
+	return t;
+}
+
+void TaskCalculations(int t, float v)
 {
 	int timePer;
 	if (t >= 0 && t <= 30) timePer=1;
@@ -24,24 +48,4 @@ void TaskCalculations(float v, int t)
 		}
 	}
 	printf("Value=%.2f \n", v);
-}
-
-int main()
-{
-	int t;
-	float v;
-	printf("Enter the value (v >= 10000)\n");
-	while(1){
-		scanf("%f", &v);
-		if (v >= 10000) break;
-		printf("Wrong value! Try again\n");
-	}
-	printf("Enter the time (0 <= t <= 365)\n");
-	while(1){
-		scanf("%d", &t);
-		if (t >= 0 && t <= 365) break;
-		printf("Wrong time! Try again\n");
-	}
-	TaskCalculations(v, t);
-	return 0;
 }
