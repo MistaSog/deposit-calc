@@ -17,7 +17,7 @@ deposit: main.o deposit.o
 	./bin/deposit-calc
 
 deposit_test: main_test.o deposit_test.o
-	$(CC) build/$(TEST_PATH)/main.o build/$(TEST_PATH)/deposit_test.o -o bin/deposit-calc-test
+	$(CC) $(INCLUDES) build/$(TEST_PATH)/main.o build/$(TEST_PATH)/deposit_test.o -o bin/deposit-calc-test
 	./bin/deposit-calc-test
 
 mkDir:
