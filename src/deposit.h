@@ -1,14 +1,14 @@
 #ifndef VALUE
 #define VALUE
-float InputValue();
+int InputValue(double v);
 #endif
 
 #ifndef TIME
 #define TIME
-int InputTime();
+int InputTime(int t);
 #endif
 
 #ifndef CALC
 #define CALC
-int TaskCalculations(int, float);
+double TaskCalculations(int t, double v);
 #endif
