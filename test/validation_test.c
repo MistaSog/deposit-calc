@@ -1,5 +1,5 @@
 #include <ctest.h>
-#include <deposit.h>
+#include "deposit.h"
 
 CTEST(validation_value, value_zero) 
 {
@@ -13,25 +13,25 @@ CTEST(validation_value, value_negative)
 	const int exp = 0;
 	ASSERT_EQUAL(exp, res);
 }
-CTEST(validation_value, value_near) 
+CTEST(validation_value, value_near10000) 
 {
 	int res = InputValue(9999);
 	const int exp = 0;
 	ASSERT_EQUAL(exp, res);
 }
-CTEST(validation_value, value_equal) 
+CTEST(validation_value, value_equal10000) 
 {
 	int res = InputValue(10000);
 	const int exp = 1;
 	ASSERT_EQUAL(exp, res);
 }
-CTEST(validation_value, value_over) 
+CTEST(validation_value, value_over10000) 
 {
 	int res = InputValue(10001);
 	const int exp = 1;
 	ASSERT_EQUAL(exp, res);
 }
-CTEST(validation_value, value_overover) 
+CTEST(validation_value, value_overover10000) 
 {
 	int res = InputValue(10000000000000);
 	const int exp = 1;
@@ -43,13 +43,13 @@ CTEST(validation_time, time_negative)
 	const int exp = 0;
 	ASSERT_EQUAL(exp, res);
 }
-CTEST(validation_time, time_over) 
+CTEST(validation_time, time_over265) 
 {
 	int res = InputTime(366);
 	const int exp = 0;
 	ASSERT_EQUAL(exp, res);
 }
-CTEST(validation_time, time_overover) 
+CTEST(validation_time, time_overover365) 
 {
 	int res = InputTime(720);
 	const int exp = 0;
@@ -61,7 +61,7 @@ CTEST(validation_time, time_zero)
 	const int exp = 1;
 	ASSERT_EQUAL(exp, res);
 }
-CTEST(validation_time, time_equal) 
+CTEST(validation_time, time_equal365) 
 {
 	int res = InputTime(365);
 	const int exp = 1;
