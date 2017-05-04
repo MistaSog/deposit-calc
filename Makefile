@@ -16,8 +16,8 @@ deposit: main.o deposit.o
 	$(CC) build/$(SRC_PATH)/main.o build/$(SRC_PATH)/deposit.o -o bin/deposit-calc
 	./bin/deposit-calc
 
-deposit_test: main_test.o deposit_test.o
-	$(CC) $(INCLUDES) build/$(TEST_PATH)/main.o build/$(TEST_PATH)/deposit_test.o -o bin/deposit-calc-test
+deposit_test: main_test.o deposit_test.o validation_test.o
+	$(CC) $(INCLUDES) build/$(TEST_PATH)/main.o build/$(TEST_PATH)/deposit_test.o build/$(TEST_PATH)/validation_test.o -o bin/deposit-calc-test
 	./bin/deposit-calc-test
 
 mkDir:
@@ -37,6 +37,9 @@ main_test.o: $(TEST_PATH)/main.c
 
 deposit_test.o: $(TEST_PATH)/deposit_test.c
 	$(CC) $(COMPILE_FLAGS) $(INCLUDES) -c $(TEST_PATH)/deposit_test.c -o build/$(TEST_PATH)/deposit_test.o
+
+validation_test.o: $(TEST_PATH)/validation_test.c
+	$(CC) $(COMPILE_FLAGS) $(INCLUDES) -c $(TEST_PATH)/validation_test.c -o build/$(TEST_PATH)/validation_test.o
 
 .PHONY: clean
 clean:
