@@ -4,7 +4,7 @@
 CTEST(validation_value, value_zero) 
 {
 	int res = InputValue(0);
-	const int exp = 0;
+	const int exp = 1;
 	ASSERT_EQUAL(exp, res);
 }
 CTEST(validation_value, value_negative) 
